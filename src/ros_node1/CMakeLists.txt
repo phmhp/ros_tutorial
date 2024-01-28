@@ -8,12 +8,10 @@ project(ros_node1)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  message
-  message_generation
+  Message
   message_runtime
   roscpp
   rospy
-  std_msgs
   std_msgs
 )
 
@@ -74,7 +72,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs#   std_msgs
+#   std_msgs
 # )
 
 ################################################
@@ -108,8 +106,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES ros_node1
-#  CATKIN_DEPENDS message message_generation message_runtime roscpp rospy std_msgs std_msgs
+  LIBRARIES ros_node1
+  CATKIN_DEPENDS Message message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -163,7 +161,7 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS
+ catkin_install_python(PROGRAMS
    src/node1.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
